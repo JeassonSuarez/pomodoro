@@ -11,6 +11,7 @@ const PomodoroPanel = ({
   seconds,
   fase,
   numPomodoro,
+  dataConf
 }) => {
   const audioRef = useRef(null);
   const [intervalId, setIntervalId] = useState(setInterval(() => {}, 1000));
@@ -24,13 +25,13 @@ const PomodoroPanel = ({
 
   const descansarCorto = () => {
     setFase("descanso corto");
-    setSeconds(6);
+    setSeconds(dataConf ? parseInt(dataConf.ddc)*60 : 5*60);
     setColor("dc");
   };
 
   const descansarLargo = () => {
     setFase("descanso largo");
-    setSeconds(7);
+    setSeconds(dataConf ? parseInt(dataConf.ddl)*60 : 15*60);
     setColor("dl");
   };
 
@@ -47,7 +48,7 @@ const PomodoroPanel = ({
 
   if (seconds === 0 && fase === "descanso corto") {
     audioRef.current.play();
-    setSeconds(5);
+    setSeconds(dataConf ? parseInt(dataConf.d)*60 : 25*60);
     setNumPomodoro((pre) => pre + 1);
     setFase("pomodoro");
     setColor("p");
@@ -56,15 +57,15 @@ const PomodoroPanel = ({
 
   if (seconds === 0 && fase === "descanso largo") {
     audioRef.current.play();
-    setSeconds(5);
+    setSeconds(dataConf ? parseInt(dataConf.d)*60 : 25*60);
     setNumPomodoro(1);
     setFase("pomodoro");
     setColor("p");
     clearInterval(intervalId);
   }
 
-  console.log(fase);
-  console.log(numPomodoro);
+  // console.log(fase);
+  // console.log(numPomodoro);
 
   const pausarTiempo = () => {
     clearInterval(intervalId);
@@ -73,7 +74,7 @@ const PomodoroPanel = ({
   const reinciarPomodoro = () => {
     setNumPomodoro(1);
     setFase("pomodoro");
-    setSeconds(5);
+    setSeconds(dataConf ? parseInt(dataConf.d)*60 : 25*60);
     setColor("p");
   };
 
@@ -84,11 +85,11 @@ const PomodoroPanel = ({
       reinciarPomodoro();
     } else if (valueColor === "Descanso Corto") {
       setFase("descanso corto");
-      setSeconds(6);
+      setSeconds(dataConf ? parseInt(dataConf.ddc)*60 : 5*60);
       setColor("dc");
     } else if (valueColor === "Descanso Largo") {
       setFase("descanso largo");
-      setSeconds(7);
+      setSeconds(dataConf ? parseInt(dataConf.ddl)*60 : 15*60);
       setColor("dl");
     }
   };
