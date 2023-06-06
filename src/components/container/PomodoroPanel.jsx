@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 // import Boton from "../pure/Boton";
 import { useState, useEffect } from "react";
 
@@ -11,6 +12,7 @@ const PomodoroPanel = ({
   fase,
   numPomodoro,
 }) => {
+  const audioRef = useRef(null);
   const [intervalId, setIntervalId] = useState(setInterval(() => {}, 1000));
   const iniciarTiempo = () => {
     setIntervalId(
@@ -31,18 +33,20 @@ const PomodoroPanel = ({
     setSeconds(7);
     setColor("dl");
   };
-  
+
   if (seconds === 0 && fase === "pomodoro") {
     // console.log("cambio");
+    audioRef.current.play();
     if (numPomodoro < 4) {
-      descansarCorto()
+      descansarCorto();
     } else {
-      descansarLargo()
+      descansarLargo();
     }
     clearInterval(intervalId);
   }
 
   if (seconds === 0 && fase === "descanso corto") {
+    audioRef.current.play();
     setSeconds(5);
     setNumPomodoro((pre) => pre + 1);
     setFase("pomodoro");
@@ -51,6 +55,7 @@ const PomodoroPanel = ({
   }
 
   if (seconds === 0 && fase === "descanso largo") {
+    audioRef.current.play();
     setSeconds(5);
     setNumPomodoro(1);
     setFase("pomodoro");
@@ -64,7 +69,6 @@ const PomodoroPanel = ({
   const pausarTiempo = () => {
     clearInterval(intervalId);
   };
-
 
   const reinciarPomodoro = () => {
     setNumPomodoro(1);
@@ -94,6 +98,9 @@ const PomodoroPanel = ({
 
   return (
     <div className="div-container-pomodoro">
+      <audio ref={audioRef} controls className="pomodoro-audio">
+        <source src="/sonido.mp3" type="audio/mpeg" />
+      </audio>
       <button className={`btn btn-pomodoro`} onClick={handleClic}>
         Pomodoro
       </button>
