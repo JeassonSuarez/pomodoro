@@ -18,7 +18,7 @@ const FormularioCongPom = ({ configurar, color }) => {
     <div className="div-container-configuracion">
       <h2>Configura Tu Pomodoro (minutos)</h2>
       <div>
-      <label htmlFor="d">Duracion Fase</label>
+      <label htmlFor="d">Pomodoro</label>
         <input
           type="number"
           id="d"
@@ -30,7 +30,7 @@ const FormularioCongPom = ({ configurar, color }) => {
         />
       </div>
       <div>
-      <label htmlFor="ddc">Duracion Fase</label>
+      <label htmlFor="ddc">Descanso Corto</label>
         <input
           type="number"
           id="ddc"
@@ -42,7 +42,7 @@ const FormularioCongPom = ({ configurar, color }) => {
         />
       </div>
       <div>
-      <label htmlFor="ddl">Duracion Fase</label>
+      <label htmlFor="ddl">Descanso Largo</label>
         <input
           type="number"
           id="ddl"
