@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
-const FormularioCongPom = ({ configurar }) => {
+const FormularioCongPom = ({ configurar, color }) => {
 
   const [data, setData] = useState({
-    dp:25*60,
-    ddc:5*60,
-    ddl:15*60
+    d:null
   })
 
 
@@ -18,38 +16,14 @@ const FormularioCongPom = ({ configurar }) => {
     <div className="div-container-configuracion">
       <h2>Configura Tu Pomodoro (minutos)</h2>
       <div>
-        <label htmlFor="dp">Pomodoro</label>
+        <label htmlFor="d">Duracion Fase</label>
         <input
           type="number"
-          id="dp"
-          name="dp"
+          id="d"
+          name="d"
           min={15}
           max={60}
-          className="input-p"
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="ddc">Descanso Corto</label>
-        <input
-          type="number"
-          id="ddc"
-          name="ddc"
-          min={15}
-          max={60}
-          className="input-dc"
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="ddl">Descanso Largo</label>
-        <input
-          type="number"
-          id="ddl"
-          name="ddl"
-          min={15}
-          max={60}
-          className="input-dl"
+          className={`input-${color}`}
           onChange={handleChange}
         />
       </div>

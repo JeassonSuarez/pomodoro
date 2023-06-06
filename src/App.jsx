@@ -11,13 +11,14 @@ function App() {
 
   const configurar = (data) => {
     console.log('configurando', data);
+    setSeconds(parseInt(data.d)*60);
   }
 
   return (
     <div className={`App ${color}`}>
       <h1>Enfocate Pomodoro</h1>
-      <PomodoroPanel setColor = {setColor} setSeconds={setSeconds} setFase = {setFase} setNumPomodoro = {setNumPomodoro} seconds={seconds} numPomodoro={numPomodoro} fase={fase}/>
-      <FormularioCongPom configurar={configurar}/>
+      <PomodoroPanel setColor = {setColor} setSeconds={setSeconds} setFase = {setFase} setNumPomodoro = {setNumPomodoro} seconds={seconds} numPomodoro={numPomodoro} fase={fase} />
+      <FormularioCongPom configurar={configurar} color={color}/>
     </div>
   )
 }
