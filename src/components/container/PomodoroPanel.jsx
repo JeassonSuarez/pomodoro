@@ -2,6 +2,7 @@ import React from "react";
 import { useRef } from "react";
 // import Boton from "../pure/Boton";
 import { useState, useEffect } from "react";
+import sonido from '../../sounds/sonido.mp3';
 
 const PomodoroPanel = ({
   setColor,
@@ -100,7 +101,7 @@ const PomodoroPanel = ({
   return (
     <div className="div-container-pomodoro">
       <audio ref={audioRef} controls className="pomodoro-audio">
-        <source src="/sonido.mp3" type="audio/mpeg" />
+        <source src={sonido} type="audio/mpeg" />
       </audio>
       <button className={`btn btn-pomodoro`} onClick={handleClic}>
         Pomodoro
