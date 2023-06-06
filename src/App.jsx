@@ -1,32 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import PomodoroPanel from './components/container/PomodoroPanel'
+import FormularioCongPom from './components/container/FormularioCongPom'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [color, setColor] = useState('p')
+  const [seconds, setSeconds] = useState(5);
+  const [fase, setFase] = useState("pomodoro");
+  const [numPomodoro, setNumPomodoro] = useState(1);
+
+  const configurar = (data) => {
+    console.log('configurando', data);
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className={`App ${color}`}>
+      <h1>Enfocate Pomodoro</h1>
+      <PomodoroPanel setColor = {setColor} setSeconds={setSeconds} setFase = {setFase} setNumPomodoro = {setNumPomodoro} seconds={seconds} numPomodoro={numPomodoro} fase={fase}/>
+      <FormularioCongPom configurar={configurar}/>
     </div>
   )
 }

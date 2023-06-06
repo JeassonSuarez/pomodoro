@@ -1,42 +1,202 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 90vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  color: white;
+  transition: background-color 1s ease;
+  min-height: 100vh;
+}
+
+.div-container-configuracion {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  outline: 1px solid #0d80d8;
+  width: 60%;
+  padding: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #0a1929;
+}
+
+h2 {
+  width: 100%;
+}
+
+
+.div-container-configuracion > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: rebeccapurple; */
+    width: 120px;
+    gap: 10px;
+}
+
+.configuracion-div-btn{
+    display: flex;
+    width: fit-content;
+}
+input {
+  background-color: rgba(102, 51, 153, 0);
+  color: white;
+  padding: 16px 0;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  border: none;
+}
+
+
+.input-p {
+  outline: 1px solid #0d80d8;
+}
+.input-dc {
+  outline: 1px solid #69e1ff;
+}
+.input-dl {
+  outline: 1px solid #617aed;
+}
+
+.p {
+  background-color: #0a1929;
+}
+
+.dc {
+  background-color: #69e1ff;
+}
+
+.dl {
+  background-color: #617aed;
+}
+
+h1 {
+    width: 60%;
+  font-size: 100px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.div-container-pomodoro {
+  width: 60%;
+  outline: 1px solid #0d80d8;
+  background-color: #0a1929;
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.btn {
+  border: none;
+  background-color: white;
+  padding: 16px 20px;
+  outline: 1px solid black;
+  font-size: 26px;
+  border-radius: 15px;
+  color: white;
+  transition: background-color 0.2s ease-in;
+  cursor: pointer;
 }
 
-.card {
-  padding: 2em;
+.div-reloj {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 120px;
+  color: white;
+  padding: 0 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.btn-configurar{
+    background-color: #0d80d8;
+}
+
+.btn-configurar:hover{
+    background-color: white;
+    color: #0d80d8;
+    outline: 1px solid #0d80d8;
+}
+
+.btn-iniciar {
+  background-color: green;
+}
+
+.btn-pausar {
+  background-color: rgb(230, 179, 29);
+}
+
+.btn-reiniciar {
+  background-color: #0d80d8;
+}
+
+.btn-pomodoro {
+  background-color: #0a1929;
+  outline: 1px solid #0d80d8;
+}
+
+.btn-dc {
+  background-color: #69e1ff;
+}
+
+.btn-dl {
+  background-color: #617aed;
+}
+
+.btn-iniciar:hover {
+  background-color: white;
+  outline: 1px solid green;
+  color: green;
+}
+
+.btn-pausar:hover {
+  background-color: white;
+  outline: 1px solid rgb(230, 179, 29);
+  color: rgb(230, 179, 29);
+}
+
+.btn-reiniciar:hover {
+  background-color: white;
+  outline: 1px solid #0d80d8;
+  color: #0d80d8;
+}
+
+.btn-pomodoro:hover {
+  background-color: white;
+  outline: 1px solid #0d80d8;
+  color: #0a1929;
+}
+
+.btn-dc:hover {
+  background-color: white;
+  outline: 1px solid #69e1ff;
+  color: #69e1ff;
+}
+
+.btn-dl:hover {
+  background-color: white;
+  outline: 1px solid #617aed;
+  color: #617aed;
+}
+
+@media (max-width:950px){
+    h1{
+        text-align: center;
+        font-size: 60px;
+    }
 }
