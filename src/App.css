@@ -16,9 +16,9 @@
   padding: 25px;
 }
 
-/* .pomodoro-audio{
+.pomodoro-audio{
   display: none;
-} */
+}
 
 .div-container-configuracion {
   display: flex;
