@@ -20,8 +20,20 @@ const PomodoroPanel = ({
     );
   };
 
+  const descansarCorto = () => {
+    setFase("descanso corto");
+    setSeconds(6);
+    setColor("dc");
+  };
+
+  const descansarLargo = () => {
+    setFase("descanso largo");
+    setSeconds(7);
+    setColor("dl");
+  };
+  
   if (seconds === 0 && fase === "pomodoro") {
-    console.log("cambio");
+    // console.log("cambio");
     if (numPomodoro < 4) {
       descansarCorto()
     } else {
@@ -53,17 +65,6 @@ const PomodoroPanel = ({
     clearInterval(intervalId);
   };
 
-  const descansarCorto = () => {
-    setFase("descanso corto");
-    setSeconds(6);
-    setColor("dc");
-  };
-
-  const descansarLargo = () => {
-    setFase("descanso largo");
-    setSeconds(7);
-    setColor("dl");
-  };
 
   const reinciarPomodoro = () => {
     setNumPomodoro(1);
